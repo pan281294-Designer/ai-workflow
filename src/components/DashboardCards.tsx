@@ -79,14 +79,10 @@ export function RecentProjects() {
 
 export function ActivityPanel() {
     const router = useRouter();
-    const setWorkflowFromSuggestion = useWorkflowStore((state) => (
-        {
-            setCategory: state.setCategory,
-            setIndustry: state.setIndustry,
-            setStyle: state.setStyle,
-            setProductName: state.setProductName
-        }
-    ));
+    const setCategory = useWorkflowStore((state) => state.setCategory);
+    const setIndustry = useWorkflowStore((state) => state.setIndustry);
+    const setStyle = useWorkflowStore((state) => state.setStyle);
+    const setProductName = useWorkflowStore((state) => state.setProductName);
 
     const [suggestions, setSuggestions] = useState<any[]>([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -108,10 +104,10 @@ export function ActivityPanel() {
     }, []);
 
     const handleSuggestionClick = (suggestion: any) => {
-        setWorkflowFromSuggestion.setCategory(suggestion.category || 'web');
-        setWorkflowFromSuggestion.setIndustry(suggestion.industry || 'Tech');
-        setWorkflowFromSuggestion.setStyle(suggestion.style || 'Clean and modern');
-        setWorkflowFromSuggestion.setProductName(suggestion.title || 'New Project');
+        setCategory(suggestion.category || 'web');
+        setIndustry(suggestion.industry || 'Tech');
+        setStyle(suggestion.style || 'Clean and modern');
+        setProductName(suggestion.title || 'New Project');
         router.push('/new-task');
     };
 
