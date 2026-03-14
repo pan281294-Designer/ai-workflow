@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-50: #f4f6ff;
+  --color-brand-100: #e8ecff;
+  --color-brand-200: #d1d8ff;
+  --color-brand-300: #a9b7ff;
+  --color-brand-400: #7a8eff;
+  --color-brand-500: #4a5cff;
+  --color-brand-600: #2934ff;
+  --color-brand-700: #1a22f2;
+  --color-brand-800: #151cc4;
+  --color-brand-900: #131a9e;
+  --color-brand-950: #0a0d5c;
+
+  --color-surface-50: #f9fafb;
+  --color-surface-100: #f3f4f6;
+  --color-surface-200: #e5e7eb;
+  --color-surface-300: #d1d5db;
+  --color-surface-400: #9ca3af;
+  --color-surface-500: #6b7280;
+  --color-surface-600: #4b5563;
+  --color-surface-700: #374151;
+  --color-surface-800: #1f2937;
+  --color-surface-900: #111827;
+  --color-surface-950: #030712;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #111827;
+  --sidebar-bg: #f9fafb;
+  --sidebar-border: #e5e7eb;
+  --panel-bg: #ffffff;
+  --panel-border: #f3f4f6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #030712;
+    --foreground: #f9fafb;
+    --sidebar-bg: #111827;
+    --sidebar-border: #1f2937;
+    --panel-bg: #111827;
+    --panel-border: #1f2937;
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom scrollbar to keep it clean like Linear/Vercel */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--surface-300);
+  border-radius: 4px;
+}
+@media (prefers-color-scheme: dark) {
+  ::-webkit-scrollbar-thumb {
+    background: var(--surface-700);
+  }
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--surface-400);
+}
+
+.shadow-soft {
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+}
+@media (prefers-color-scheme: dark) {
+  .shadow-soft {
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
+  }
+}
